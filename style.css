@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+html,
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+#main {
+    display: flex;
+}
+
+#main .part {
+    flex: 1;
+}
+
+#main .part .section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#main .part .section img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    left: var(--x);
+    pointer-events: none;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.buttons {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+}
+
+.buttons button {
+    border: none;
+    background-size: contain;
+    background: url("data:image/svg+xml,%3Csvg width='10' height='29' viewBox='0 0 10 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0V27L1 17.4857' stroke='white' stroke-width='2' /%3E%3C/svg%3E%0A") no-repeat;
+    background-position: center;
+    width: 10px;
+    height: 30px;
+    display: block;
+    margin: 20px 0;
+    padding: 0 15px;
+    transition-duration: .6s;
+}
+
+.buttons button.next {
+    transform: scaleY(-1);
+    cursor: pointer;
+}
+
+.buttons button.prev {
+    cursor: pointer;
+}
+
+.buttons button.prev:active {
+    transform: translateY(8px);
+}
+
+.buttons button.next:active {
+    transform: scaleY(-1) translateY(8px);
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 99;
+    color: #dfaf1d;
+    text-align: center;
+    font-size: 84px;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    padding: 50px;
+    text-transform: uppercase;
+    line-height: 4.5rem;
+    letter-spacing: .4rem;
+}
+
+.content {
+    width: 90%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    z-index: 99;
+    font-size: .8em;
+}
+
+.content p {
+    margin: .5em auto;
+}
+
+.content kbd {
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: .9em;
+    vertical-align: text-top;
+}
+
+.button {
+    display: flex;
+    margin-top: 25px;
+}
+
+b {
+    color: #dfaf1d;
+    text-align: center;
+    font-size: 84px;
+    display: flex;
+    margin-top: -40px;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px 20px;
+    color: #000;
+    background-color: #fff;
+    transition: .3s;
+    text-transform: capitalize;
+    letter-spacing: .25rem;
+    border-radius: 5px;
+    align-self: center;
+}
+
+a:nth-child(1) {
+    /* position: absolute;
+    right: calc(50% + 145px);
+    transform: translateX(50%); */
+}
+
+a:nth-child(2) {
+    position: absolute;
+    left: calc(50% - 195px);
+    transform: translateX(50%);
+}
+
+a:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+h1>p {
+    font-size: 35px;
+    color: #578bde;
+    margin-top: -10px;
+    letter-spacing: .2rem;
+}
+
+img {
+    width: 100px;
+    margin-bottom: 30px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 550px) and (min-width: 420px) {
+    h1 {
+        font-size: 80px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    h1>p {
+        font-size: 30px;
+        line-height: 80%;
+        margin: auto;
+    }
+    .buttons {
+        display: none;
+    }
+    .button {
+        display: flex;
+        flex-direction: column;
+        margin-top: -15px;
+    }
+    a {
+        position: initial !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateX(0%) !important;
+        font-size: 22px;
+        padding: 0 15px;
+    }
+    a:nth-child(2) {
+        margin-top: 20px;
+    }
+    .content {
+        display: none;
+    }
+    img {
+        position: sticky;
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 420px) and (min-width: 380px) {
+    h1 {
+        font-size: 50px;
+    }
+    h1>p {
+        font-size: 2rem;
+        margin: auto;
+        line-height: 40px;
+    }
+    h1>b {
+        font-size: 5.2rem;
+    }
+    .buttons {
+        display: none;
+    }
+    .button {
+        display: flex;
+        flex-direction: column;
+        margin-top: -15px;
+    }
+    a {
+        position: initial !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateX(0%) !important;
+        font-size: 22px;
+        padding: 0 15px;
+    }
+    a:nth-child(2) {
+        margin-top: 20px;
+    }
+    .content {
+        display: none;
+    }
+    img {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    h1 {
+        font-size: 39px;
+    }
+    h1>p {
+        font-size: 1.9rem;
+        margin: auto;
+        line-height: 40px;
+    }
+    h1>b {
+        margin-top: auto;
+        font-size: 4.4rem;
+    }
+    .buttons {
+        display: none;
+    }
+    .button {
+        display: flex;
+        flex-direction: column;
+        margin-top: -15px;
+    }
+    a {
+        position: initial !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateX(0%) !important;
+        font-size: 20px;
+        padding: 0 15px;
+    }
+    a:nth-child(2) {
+        margin-top: 20px;
+    }
+    .content {
+        display: none;
+    }
+    img {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .button {
+        margin-top: 0px;
+    }
+}
